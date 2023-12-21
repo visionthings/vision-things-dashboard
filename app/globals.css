@@ -1,0 +1,144 @@
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+}
+nav {
+  height: 75px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+#main {
+  margin-top: 75px;
+  margin-right: 75px;
+  background-color: #eee;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+#landing-page {
+  min-height: 100vh;
+  background-image: url("/images/landing-page.jpg");
+  background-size: 100vw 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.img-wrap {
+  position: relative;
+  z-index: 1;
+}
+.img-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar */
+#main_sidebar {
+  position: fixed;
+  width: 75px;
+  top: 75px;
+  background-color: white;
+  color: blue;
+  transition: 0.5s all;
+  z-index: 9;
+}
+#main_sidebar_body {
+  height: calc(100vh - 150px);
+}
+#main_sidebar:hover {
+  width: 300px;
+  transition: 0.5s all ease;
+}
+
+#main_sidebar_body::-webkit-scrollbar {
+  width: 7px;
+}
+#main_sidebar_body::-webkit-scrollbar-track {
+  background: transparent;
+}
+#main_sidebar_body::-webkit-scrollbar-thumb {
+  background: #1b2d50;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#main_sidebar_body::-webkit-scrollbar-thumb:hover {
+  background: #9fb3c8;
+}
+footer {
+  background-color: white;
+}
+.MuiInputLabel-root {
+  left: inherit !important;
+  right: 1.75rem !important;
+  transform-origin: right !important;
+}
+label {
+  width: 400px;
+}
+button {
+  height: 50px;
+}
+
+#contract {
+  width: 210mm;
+  height: 297mm;
+  background-image: url("/images/contract.png");
+  background-size: 100% 100%;
+  direction: rtl;
+  letter-spacing: normal !important;
+}
+
+#contract table p {
+  text-align: center;
+}
+
+#contract table,
+#contract td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+#contract td {
+  min-width: 20px;
+  text-align: center;
+}
+
+#contract p {
+  font-size: medium;
+  font-weight: 100;
+  margin: 0;
+  margin-bottom: 4px;
+}
+#contract h4 {
+  color: #51a29d;
+  margin: 0;
+}
+.pink-section {
+  background-color: #ec3755;
+  background-image: url("/images/bg.png");
+  color: white;
+}
+.green-box {
+  background: rgb(4, 4, 121);
+  background: linear-gradient(
+    180deg,
+    rgba(4, 4, 121, 1) 0%,
+    rgba(24, 50, 136, 1) 0%,
+    rgba(8, 139, 118, 1) 100%,
+    rgba(9, 161, 118, 1) 100%
+  );
+  cursor: pointer;
+}

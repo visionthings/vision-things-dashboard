@@ -1,0 +1,48 @@
+Vision Things CP 
+================
+
+FIRST PAGE 
+1. Login form
+
+MAIN DASHBOARD 
+Navbar Elements => {
+Right => {
+		Logo
+	};
+Left => {
+		Mail
+		Profile Pic with menu which contains {
+			Edit profile 
+			Sign out
+		}
+	}
+}
+Sidebar Elements => {
+	* Mail
+	* Create a new nav element which contains {
+		title in Ar and En 
+	}
+	* Create a new page element which is connected to nav eles and contains {
+		Choose nav e from droplist
+		add a new section which contains {
+			Choose section type  which contains {
+				Primary Section 
+				Secondary Section 
+				Section with img 
+				Text only section 
+				Companies section 
+			}
+			Title in Ar and En 
+			Text in Ar and En 
+			Image 			
+		}		
+	}
+	* Create a promo code {
+		Code  
+		Start date 
+		End Date 
+		Discount Percentage 
+	}
+	* Create Contract {}
+}
+

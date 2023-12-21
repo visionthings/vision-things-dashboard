@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "صندوق البريد",
+    "allowed_users": "view_mail",
+    "content": [
+      {
+        "id": 1,
+        "title": "رسائل المهتمين",
+        "url": "/dashboard/interested-messages",
+        "allowed_users": "all"
+      },
+      {
+        "id": 2,
+        "title": "رسائل الزوار",
+        "url": "/dashboard/visitors-messages",
+        "allowed_users": "all"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "ادارة صفحات الموقع",
+    "allowed_users": "manage_pages",
+    "content": [
+      {
+        "id": 1,
+        "title": "عناصر شريط التنقل",
+        "url": "/dashboard/navbar-elements",
+        "allowed_users": "all"
+      },
+      {
+        "id": 2,
+        "title": "الصفحات",
+        "url": "/dashboard/pages",
+        "allowed_users": "all"
+      },
+      {
+        "id": 3,
+        "title": "المحتوى",
+        "url": "/dashboard/content",
+        "allowed_users": "all"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "العقود",
+    "allowed_users": "contracts",
+    "content": [
+      {
+        "id": 1,
+        "title": "ادارة العقود",
+        "url": "/dashboard/contracts-management",
+        "allowed_users": "manage_contracts"
+      },
+      {
+        "id": 2,
+        "title": "اضافة عقد جديد",
+        "url": "/dashboard/create-contract",
+        "allowed_users": "create_contract"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "كوبونات الخصم",
+    "allowed_users": "manage_promocodes",
+    "content": [
+      {
+        "id": 1,
+        "title": "ادارة كوبونات الخصم",
+        "url": "/dashboard/promocodes-management",
+        "allowed_users": "all"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "الأعضاء",
+    "allowed_users": "manage_members",
+    "content": [
+      {
+        "id": 1,
+        "title": "ادارة الاعضاء",
+        "url": "/dashboard/members-management",
+        "allowed_users": "all"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "التقارير",
+    "allowed_users": "view_reports",
+    "content": [
+      {
+        "id": 1,
+        "title": "تقرير الزيارات",
+        "url": "/dashboard/visits-report",
+        "allowed_users": "all"
+      },
+      {
+        "id": 2,
+        "title": "تقرير المبيعات",
+        "url": "/dashboard/sales-report",
+        "allowed_users": "all"
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "base_url": "https://api.vision-things.com",
+  "interested_messages": "https://api.vision-things.com/api/interested-messages",
+  "visitors_messages": "https://api.vision-things.com/api/contact-messages",
+  "promocodes": "https://api.vision-things.com/api/promocodes",
+  "nav_elements": "https://api.vision-things.com/api/nav-elements",
+  "pages": "https://api.vision-things.com/api/pages",
+  "contents": "https://api.vision-things.com/api/contents",
+  "members": "https://api.vision-things.com/api/users",
+  "contracts": "https://api.vision-things.com/api/contracts",
+  "visits": "https://api.vision-things.com/api/visits",
+  "failed_payments": "https://api.vision-things.com/api/failedpayments",
+  "register": "https://api.vision-things.com/api/register",
+  "contract_number": "https://api.vision-things.com/api/contracts/number"
+}
