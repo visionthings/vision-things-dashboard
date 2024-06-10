@@ -9,8 +9,9 @@ import { faTrashCan, faGlasses } from '@fortawesome/free-solid-svg-icons';
 import { LoadingComponent } from '../../../../shared/loading/loading.component';
 import { SuccessMessageComponent } from '../../../../shared/success-message/success-message.component';
 import { EmptyStateComponent } from '../../../../shared/empty-state/empty-state.component';
+
 @Component({
-  selector: 'app-inbox',
+  selector: 'app-interested',
   standalone: true,
   imports: [
     HeadingComponent,
@@ -22,10 +23,10 @@ import { EmptyStateComponent } from '../../../../shared/empty-state/empty-state.
     FontAwesomeModule,
     EmptyStateComponent,
   ],
-  templateUrl: './inbox.component.html',
-  styleUrl: './inbox.component.scss',
+  templateUrl: './interested.component.html',
+  styleUrl: './interested.component.scss',
 })
-export class InboxComponent implements OnInit {
+export class InterestedComponent implements OnInit {
   constructor(private dashboardService: DashboardService) {}
   icons = {
     read: faGlasses,
@@ -42,7 +43,7 @@ export class InboxComponent implements OnInit {
   setPage(page: any) {
     if (page) {
       this.currentPage = page;
-      this.dashboardService.getInboxPage(page).subscribe({
+      this.dashboardService.getPage(page).subscribe({
         next: (res: any) => {
           this.res = res;
           this.messages = res.data;
@@ -57,7 +58,7 @@ export class InboxComponent implements OnInit {
   }
 
   delete(id: string) {
-    this.dashboardService.deleteFromInbox(id).subscribe({
+    this.dashboardService.deleteInterested(id).subscribe({
       next: (res) => {
         this.successMessage = 'تم حذف الرسالة بنجاح.';
         this.setPage(this.currentPage);
@@ -76,7 +77,7 @@ export class InboxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dashboardService.getInbox().subscribe({
+    this.dashboardService.getInterested().subscribe({
       next: (res: any) => {
         this.isLoading = false;
         this.res = res;

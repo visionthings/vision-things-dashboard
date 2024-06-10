@@ -100,100 +100,212 @@ export class DashboardService {
     });
   }
 
-  // Visit Requests
-  openVisitRequests() {
+  // Interested
+  getInterested() {
     let token;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
-    return this.http.get(`${this.endpoint}/open-visit-requests`, {
+
+    return this.http.get(`${this.endpoint}/interested`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,
       }),
     });
   }
 
-  closedVisitRequests() {
+  deleteInterested(id: string) {
     let token;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
-    return this.http.get(`${this.endpoint}/closed-visit-requests`, {
+
+    return this.http.delete(`${this.endpoint}/interested/${id}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  // Categories
+  getCategories() {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.get(`${this.endpoint}/categories`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  addCategory(data: any) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.post(`${this.endpoint}/categories`, data, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  updateCategory(id: string | null, data: any) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.post(`${this.endpoint}/categories/${id}`, data, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  showCategory(id: string | null) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.get(`${this.endpoint}/categories/${id}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  deleteCategory(id: string | null) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.delete(`${this.endpoint}/categories/${id}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,
       }),
     });
   }
 
-  closeTicket(id: string) {
-    let token;
-    if (typeof window !== 'undefined') {
-      token = localStorage.getItem('token');
-    }
-    return this.http.post(
-      `${this.endpoint}/close-ticket/${id}`,
-      {},
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${token}`,
-        }),
-      }
-    );
-  }
-
-  deleteVisitRequest(id: string) {
+  // Pages
+  getPages() {
     let token;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
 
-    return this.http.delete(`${this.endpoint}/visit-request/${id}`, {
+    return this.http.get(`${this.endpoint}/pages`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  addPage(data: any) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.post(`${this.endpoint}/pages`, data, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  updatePage(id: string | null, data: any) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.post(`${this.endpoint}/pages/${id}`, data, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  showPage(id: string | null) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.get(`${this.endpoint}/pages/${id}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  deletePage(id: string | null) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.delete(`${this.endpoint}/pages/${id}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,
       }),
     });
   }
 
-  // Promocodes
-  addPromocode(data: any) {
+  // Content
+  getContent() {
     let token;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
-    return this.http.post(`${this.endpoint}/promocodes`, data, {
+
+    return this.http.get(`${this.endpoint}/content`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,
       }),
     });
   }
-  getPromocodes() {
+  addContent(data: any) {
     let token;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
-    return this.http.get(`${this.endpoint}/promocodes`, {
+
+    return this.http.post(`${this.endpoint}/content`, data, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,
       }),
     });
   }
-  getPromocodesPage(url: string) {
+  updateContent(id: string | null, data: any) {
     let token;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
-    return this.http.get(url, {
+
+    return this.http.post(`${this.endpoint}/content/${id}`, data, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,
       }),
     });
   }
-  deletePromocode(id: string) {
+  showContent(id: string | null) {
     let token;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token');
     }
-    return this.http.delete(`${this.endpoint}/promocodes/${id}`, {
+
+    return this.http.get(`${this.endpoint}/content/${id}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+  deleteContent(id: string | null) {
+    let token;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
+
+    return this.http.delete(`${this.endpoint}/content/${id}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${token}`,
       }),

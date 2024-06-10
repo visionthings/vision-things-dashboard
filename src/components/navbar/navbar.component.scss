@@ -1,10 +1,7 @@
 nav {
   height: 60px;
-  background: linear-gradient(
-    337deg,
-    rgba(34, 42, 166, 1) 0%,
-    rgba(104, 132, 253, 1) 100%
-  );
+  background-image: url("../../assets/images/navbar.png");
+  background-size: cover;
 }
 
 .profile-menu {

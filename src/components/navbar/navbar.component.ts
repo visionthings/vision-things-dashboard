@@ -24,12 +24,8 @@ export class NavbarComponent implements OnInit {
   isProfileMenuActive = false;
 
   logout() {
-    this.authService.logout().subscribe({
-      next: (res) => {
-        localStorage.clear();
-        this.router.navigateByUrl('/login');
-      },
-    });
+    localStorage.clear();
+    this.router.navigateByUrl('/login');
   }
 
   toggleProfileMenu() {

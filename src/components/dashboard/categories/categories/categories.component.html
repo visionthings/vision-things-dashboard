@@ -1,0 +1,46 @@
+@if (isLoading) {
+<app-loading></app-loading>
+} @else {
+<app-heading message="أقسام الموقع"></app-heading>
+@if (items.length == 0) {
+<app-empty-state></app-empty-state>
+} @else {
+<div class="w-full overflow-x-auto">
+  <table class="mb-5 w-full text-nowrap">
+    <thead>
+      <th>اسم القسم بالعربي</th>
+      <th>اسم القسم بالانجليزي</th>
+      <th>تعديل القسم</th>
+      <th>حذف القسم</th>
+    </thead>
+    <tbody>
+      @for (item of items; track $index) {
+      <tr>
+        <td>{{ item.title_ar }}</td>
+        <td>{{ item.title_en }}</td>
+        <td>
+          <fa-icon
+            [icon]="icons.edit"
+            class="text-teal-700 hover:text-teal-500 cursor-pointer w-fit h-fit"
+            (click)="edit(item.id)"
+          ></fa-icon>
+        </td>
+        <td>
+          <fa-icon
+            [icon]="icons.delete"
+            class="text-rose-700 hover:text-rose-500 cursor-pointer w-fit h-fit"
+            (click)="delete(item.id)"
+          ></fa-icon>
+        </td>
+      </tr>
+
+      }
+    </tbody>
+  </table>
+</div>
+<app-pagination [res]="res" (newPageEvent)="setPage($event)"></app-pagination>}
+@if (successMessage) {
+<app-success-message [message]="successMessage"></app-success-message>
+} @if (errorMessage) {
+<app-error-message [message]="errorMessage"></app-error-message>
+} }

@@ -1,0 +1,51 @@
+<section>
+  <app-heading message="تعديل الصفحة"></app-heading>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="grid grid-cols-1 gap-5">
+    <!-- Categories -->
+    <div class="grid grid-cols-3 gap-5">
+      <label for="category_id">اسم القسم المراد إنشاء الصفحة فيه</label>
+      <select
+        id="category_id"
+        name="category_id"
+        formControlName="category_id"
+        class="col-span-2"
+      >
+        @for (cat of categoris; track cat.id) {
+        <option [value]="cat.id">{{ cat.title_ar }}</option>
+        }
+      </select>
+    </div>
+    <!-- Title in Arabic -->
+    <div class="grid grid-cols-3 gap-5">
+      <label for="title_ar">اسم الصفحة باللغة العربية</label>
+      <input
+        type="text"
+        id="title_ar"
+        name="title_ar"
+        formControlName="title_ar"
+        class="col-span-2"
+      />
+    </div>
+
+    <!-- Title in English -->
+    <div class="grid grid-cols-3 gap-5">
+      <label for="title_en">اسم الصفحة باللغة الإنجليزية</label>
+      <input
+        type="text"
+        id="title_en"
+        name="title_en"
+        formControlName="title_en"
+        class="col-span-2"
+      />
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" [disabled]="form.invalid">حفظ</button>
+  </form>
+</section>
+@if (successMessage) {
+<app-success-message [message]="successMessage"></app-success-message>
+} @if (errorMessage) {
+<app-error-message [message]="errorMessage"></app-error-message>
+}

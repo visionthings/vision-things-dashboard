@@ -7,6 +7,7 @@ module.exports = {
         center: true,
         padding: "2rem",
       },
+      colors: { primary: "#010e28", secondary: "#0c1933" },
     },
   },
   plugins: [],

@@ -7,26 +7,26 @@
   font-weight: 400;
   font-style: normal;
 }
+body {
+  background-color: #010e28 !important;
+  color: white;
+}
 button {
-  background-color: #1d4ed8 !important;
+  background-color: #2dd4bf !important;
   color: white;
   border-radius: 7px !important;
   padding: 10px 30px !important;
 }
 
 button:hover {
-  outline: 3px solid #dbeafe;
+  outline: 3px solid #ccfbf1 !important;
 }
 
 table {
   width: 100%;
 }
 thead {
-  background: linear-gradient(
-    337deg,
-    rgba(34, 42, 166, 1) 0%,
-    rgba(104, 132, 253, 1) 100%
-  );
+  background-color: #14b8a6;
   color: white;
   height: 50px;
   text-align: center;
@@ -37,11 +37,16 @@ tr {
   border-bottom: 1px solid #cbd5e1;
 }
 tr:hover {
-  background-color: #eff6ff !important;
+  background-color: #010e28 !important;
 }
 td,
 th {
   padding-right: 30px !important;
   padding-left: 30px !important;
   text-align: center !important;
+}
+
+input {
+  background-color: white;
+  color: black;
 }

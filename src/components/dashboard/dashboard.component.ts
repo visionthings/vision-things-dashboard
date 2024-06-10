@@ -17,6 +17,9 @@ import {
   faFileVideo,
   faTags,
   faUsers,
+  faList,
+  faNewspaper,
+  faPenNib,
 } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -40,73 +43,50 @@ export class DashboardComponent implements OnInit {
   // Icons
   icons = {
     arrow: faChevronLeft,
-    home: faHouseChimney,
     messages: faEnvelopeOpenText,
-    contract: faFileSignature,
-    visitRequests: faFileVideo,
-    promocodes: faTags,
-    members: faUsers,
+    categories: faList,
+    pages: faNewspaper,
+    content: faPenNib,
   };
 
   // Sidebar
   sidebarItems = [
     {
-      id: 2,
+      id: 1,
       icon: this.icons.messages,
       title: 'الرسائل',
-      path: 'inbox',
       categories: [
-        { id: 2.1, title: 'إرسال رسالة جديدة', path: 'create-new-mail' },
-        { id: 2.2, title: 'البريد الوارد', path: 'inbox' },
-        { id: 2.3, title: 'البريد الصادر', path: 'outbox' },
+        { id: 1.1, title: 'إرسال رسالة جديدة', path: 'create-new-mail' },
+        { id: 1.2, title: 'البريد الوارد', path: 'inbox' },
+        { id: 1.3, title: 'البريد الصادر', path: 'outbox' },
+        { id: 1.4, title: 'رسائل المهتمين', path: 'interested' },
+      ],
+    },
+    {
+      id: 2,
+      icon: this.icons.categories,
+      title: 'الأقسام',
+      categories: [
+        { id: 2.1, title: 'إضافة قسم جديد', path: 'create-new-category' },
+        { id: 2.2, title: 'أقسام الموقع', path: 'categories' },
       ],
     },
     {
       id: 3,
-      icon: this.icons.contract,
-      title: 'إدارة العقود',
+      icon: this.icons.pages,
+      title: 'الصفحات',
       categories: [
-        { id: 3.1, title: 'إصدار عقد جديد', path: 'create-new-contract' },
-        { id: 3.2, title: 'العقود المسجلة', path: 'contracts' },
+        { id: 3.1, title: 'إضافة صفحة جديدة', path: 'create-new-page' },
+        { id: 3.2, title: 'صفحات الموقع', path: 'pages' },
       ],
     },
     {
       id: 4,
-      icon: this.icons.visitRequests,
-      title: 'طلبات الزيارة',
+      icon: this.icons.content,
+      title: 'المحتوى',
       categories: [
-        {
-          id: 4.1,
-          title: 'طلبات الزيارة المفتوحة',
-          path: 'open-visit-requests',
-        },
-        {
-          id: 4.2,
-          title: 'طلبات الزيارة المغلقة',
-          path: 'closed-visit-requests',
-        },
-      ],
-    },
-    {
-      id: 5,
-      icon: this.icons.promocodes,
-      title: 'كوبونات الخصم',
-      categories: [
-        {
-          id: 5.1,
-          title: 'إنشاء كوبون خصم جديد',
-          path: 'create-new-promocode',
-        },
-        { id: 5.2, title: 'كوبونات الخصم', path: 'promocodes' },
-      ],
-    },
-    {
-      id: 6,
-      icon: this.icons.members,
-      title: 'إدارة العضويات',
-      categories: [
-        { id: 6.1, title: 'جميع الأعضاء', path: 'members' },
-        { id: 6.2, title: 'العضويات الموقوفة', path: 'blocked-members' },
+        { id: 4.1, title: 'إضافة محتوى جديد', path: 'create-new-content' },
+        { id: 4.2, title: 'المحتوى', path: 'content' },
       ],
     },
   ];

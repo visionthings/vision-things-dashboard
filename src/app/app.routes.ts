@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from '../components/dashboard/home/home.component';
 import { LoginComponent } from '../components/login/login.component';
 import { ProfileComponent } from '../components/profile/profile.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
@@ -7,15 +6,16 @@ import { authGuard } from '../guards/auth.guard';
 import { CreateNewMailComponent } from '../components/dashboard/messages/create-new-mail/create-new-mail.component';
 import { InboxComponent } from '../components/dashboard/messages/inbox/inbox.component';
 import { OutboxComponent } from '../components/dashboard/messages/outbox/outbox.component';
-import { CreateNewContractComponent } from '../components/dashboard/contracts-management/create-new-contract/create-new-contract.component';
-import { ContractsComponent } from '../components/dashboard/contracts-management/contracts/contracts.component';
-import { OpenVisitRequestsComponent } from '../components/dashboard/visit-requests/open-visit-requests/open-visit-requests.component';
-import { ClosedVisitRequestsComponent } from '../components/dashboard/visit-requests/closed-visit-requests/closed-visit-requests.component';
-import { PromocodesComponent } from '../components/dashboard/promocodes/promocodes/promocodes.component';
-import { CreateNewPromocodeComponent } from '../components/dashboard/promocodes/create-new-promocode/create-new-promocode.component';
-import { MembersComponent } from '../components/dashboard/membership-management/members/members.component';
-import { BlockedMembersComponent } from '../components/dashboard/membership-management/blocked-members/blocked-members.component';
-import { EditContractComponent } from '../components/dashboard/contracts-management/edit-contract/edit-contract.component';
+import { CreateNewCategoryComponent } from '../components/dashboard/categories/create-new-category/create-new-category.component';
+import { EditCategoryComponent } from '../components/dashboard/categories/edit-category/edit-category.component';
+import { CategoriesComponent } from '../components/dashboard/categories/categories/categories.component';
+import { CreateNewPageComponent } from '../components/dashboard/pages/create-new-page/create-new-page.component';
+import { EditPageComponent } from '../components/dashboard/pages/edit-page/edit-page.component';
+import { PagesComponent } from '../components/dashboard/pages/pages/pages.component';
+import { CreateNewContentComponent } from '../components/dashboard/content/create-new-content/create-new-content.component';
+import { EditContentComponent } from '../components/dashboard/content/edit-content/edit-content.component';
+import { ContentComponent } from '../components/dashboard/content/content/content.component';
+import { InterestedComponent } from '../components/dashboard/messages/interested/interested.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -33,10 +33,9 @@ export const routes: Routes = [
       // Home
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'inbox',
         pathMatch: 'full',
       },
-      { path: 'home', component: HomeComponent, canActivate: [authGuard] },
 
       // Messages
       {
@@ -46,57 +45,56 @@ export const routes: Routes = [
       },
       { path: 'inbox', component: InboxComponent, canActivate: [authGuard] },
       { path: 'outbox', component: OutboxComponent, canActivate: [authGuard] },
-
-      // Contracts Management
       {
-        path: 'create-new-contract',
-        component: CreateNewContractComponent,
-        canActivate: [authGuard],
-      },
-      {
-        path: 'edit-contract/:id',
-        component: EditContractComponent,
-        canActivate: [authGuard],
-      },
-      {
-        path: 'contracts',
-        component: ContractsComponent,
+        path: 'interested',
+        component: InterestedComponent,
         canActivate: [authGuard],
       },
 
-      // Visit Requests
+      // Categories
       {
-        path: 'open-visit-requests',
-        component: OpenVisitRequestsComponent,
+        path: 'create-new-category',
+        component: CreateNewCategoryComponent,
         canActivate: [authGuard],
       },
       {
-        path: 'closed-visit-requests',
-        component: ClosedVisitRequestsComponent,
-        canActivate: [authGuard],
-      },
-
-      // Promocodes
-      {
-        path: 'create-new-promocode',
-        component: CreateNewPromocodeComponent,
+        path: 'edit-category/:id',
+        component: EditCategoryComponent,
         canActivate: [authGuard],
       },
       {
-        path: 'promocodes',
-        component: PromocodesComponent,
+        path: 'categories',
+        component: CategoriesComponent,
         canActivate: [authGuard],
       },
 
-      // Membership Management
+      // Pages
       {
-        path: 'members',
-        component: MembersComponent,
+        path: 'create-new-page',
+        component: CreateNewPageComponent,
         canActivate: [authGuard],
       },
       {
-        path: 'blocked-members',
-        component: BlockedMembersComponent,
+        path: 'edit-page/:id',
+        component: EditPageComponent,
+        canActivate: [authGuard],
+      },
+      { path: 'pages', component: PagesComponent, canActivate: [authGuard] },
+
+      // Content
+      {
+        path: 'create-new-content',
+        component: CreateNewContentComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'edit-content/:id',
+        component: EditContentComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'content',
+        component: ContentComponent,
         canActivate: [authGuard],
       },
     ],

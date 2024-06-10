@@ -2,28 +2,17 @@
 <div class="container flex gap-10 pt-10">
   <!-- Sidebar -->
   <aside
-    class="pt-10 rounded-lg overflow-hidden ring-1 ring-slate-200 shadow-lg w-fit flex flex-col justify-between"
+    class="bg-secondary text-nowrap pt-10 rounded-lg overflow-hidden shadow-lg w-80 flex flex-col justify-between"
   >
     <div class="container flex flex-col gap-5 mb-10">
-      <a
-        routerLink="/dashboard/home"
-        routerLinkActive="active"
-        (click)="updateActiveItem(0)"
-        class="mb-5"
-      >
-        <div class="flex gap-3 hover:text-blue-700">
-          <fa-icon [icon]="icons.home"></fa-icon>
-          <p>الرئيسية</p>
-        </div>
-      </a>
       @for (item of sidebarItems; track item.id) {
       <div
-        [ngClass]="activeItem === item.id ? 'text-blue-700' : ''"
-        class="flex justify-between cursor-pointer hover:text-blue-700"
+        [ngClass]="activeItem === item.id ? 'text-teal-500' : ''"
+        class="flex justify-between cursor-pointer hover:text-teal-500"
         (click)="updateActiveItem(item.id)"
       >
         <div class="flex gap-3">
-          <fa-icon [icon]="item.icon"></fa-icon>
+          <fa-icon [icon]="item.icon" style="color: #14b8a6"></fa-icon>
           <p>{{ item.title }}</p>
         </div>
         <div
@@ -48,7 +37,7 @@
           <a
             [routerLink]="cat.path"
             routerLinkActive="active"
-            class="hover:text-blue-700"
+            class="hover:text-teal-500"
             ><p>{{ cat.title }}</p>
           </a>
           }
@@ -56,12 +45,9 @@
       </div>
       }
     </div>
-    <div>
-      <img src="assets/images/footer.png" alt="abstract blue background" />
-    </div>
   </aside>
   <main
-    class="py-10 rounded-lg overflow-hidden container ring-1 ring-slate-200 shadow-lg w-full"
+    class="bg-secondary py-10 rounded-lg overflow-hidden container shadow-lg w-full"
   >
     <router-outlet></router-outlet>
   </main>

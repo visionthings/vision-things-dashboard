@@ -1,7 +1,7 @@
 @if (isLoading) {
 <app-loading></app-loading>
 } @else {
-<app-heading message="البريد الوارد"></app-heading>
+<app-heading message="رسائل المهتمين"></app-heading>
 @if (messages.length == 0) {
 <app-empty-state></app-empty-state>
 } @else { @if(currentMessage){
@@ -15,7 +15,7 @@
       <th>الاسم</th>
       <th>رقم الجوال</th>
       <th>البريد الإلكتروني</th>
-      <th>موضوع الرسالة</th>
+      <th>القسم محل الاهتمام</th>
       <th>تاريخ الرسالة</th>
       <th>قراءة الرسالة</th>
       <th>حذف الرسالة</th>
@@ -26,7 +26,7 @@
         <td>{{ message.name }}</td>
         <td>{{ message.phone }}</td>
         <td>{{ message.email }}</td>
-        <td>{{ message.subject }}</td>
+        <td>{{ message.interested }}</td>
         <td>{{ message?.created_at.slice(0, 10) }}</td>
         <td>
           <fa-icon

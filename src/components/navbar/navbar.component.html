@@ -11,40 +11,38 @@
     /></a>
 
     <!-- Profile -->
-    <div>
-      @if (user) {
+    @if (user) {
+    <div
+      class="flex items-center gap-4 text-white cursor-pointer relative z-40"
+      (mouseenter)="toggleProfileMenu()"
+      (mouseleave)="toggleProfileMenu()"
+    >
+      <div class="flex items-center gap-1">
+        <p>مرحباً {{ user.name }}</p>
+        <fa-icon [icon]="icons.arrowDown"></fa-icon>
+      </div>
+
+      <img
+        [ngSrc]="user.media[0].original_url"
+        alt="Profile picture"
+        width="40"
+        height="40"
+        class="rounded-full ring-2 ring-teal-500 bg-white"
+      />
+
+      <!-- Menu -->
       <div
-        class="flex items-center gap-4 text-white cursor-pointer relative"
-        (mouseenter)="toggleProfileMenu()"
-        (mouseleave)="toggleProfileMenu()"
+        class="absolute top-full z-40 left-0 w-full pt-3 profile-menu"
+        [class.open-profile-menu]="isProfileMenuActive"
       >
-        <div class="flex items-center gap-1">
-          <p>مرحباً {{ user.name }}</p>
-          <fa-icon [icon]="icons.arrowDown"></fa-icon>
-        </div>
-
-        <img
-          [ngSrc]="user.media[0].original_url"
-          alt="Profile picture"
-          width="40"
-          height="40"
-          class="rounded-full ring-2 ring-teal-500 bg-white"
-        />
-
-        <!-- Menu -->
         <div
-          class="absolute top-full left-0 w-full pt-3 profile-menu"
-          [class.open-profile-menu]="isProfileMenuActive"
+          class="bg-secondary container py-3 shadow-lg rounded-lg text-slate-500"
         >
-          <div
-            class="bg-white container py-3 shadow-lg rounded-lg ring-1 ring-slate-200 text-slate-500"
-          >
-            <a routerLink="/profile">عرض ملفي الشخصي</a>
-            <p class="cursor-pointer mt-3" (click)="logout()">تسجيل الخروج</p>
-          </div>
+          <a routerLink="/profile">عرض ملفي الشخصي</a>
+          <p class="cursor-pointer mt-3" (click)="logout()">تسجيل الخروج</p>
         </div>
       </div>
-      }
     </div>
+    }
   </div>
 </nav>

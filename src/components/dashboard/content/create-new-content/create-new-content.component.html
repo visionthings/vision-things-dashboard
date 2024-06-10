@@ -1,0 +1,76 @@
+<section>
+  <app-heading message="إنشاء محتوى جديد"></app-heading>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="grid grid-cols-1 gap-5">
+    <!-- Categories -->
+    <div class="grid grid-cols-3 gap-5">
+      <label for="page_id">اسم الصفحة المراد إنشاء المحتوى فيها</label>
+      <select
+        id="page_id"
+        name="page_id"
+        formControlName="page_id"
+        class="col-span-2"
+      >
+        @for (page of pages; track page.id) {
+        <option [value]="page.id">{{ page.title_ar }}</option>
+        }
+      </select>
+    </div>
+    <!-- Title in Arabic -->
+    <div class="grid grid-cols-3 gap-5">
+      <label for="content_ar"> المحتوى باللغة العربية</label>
+      <textarea
+        rows="6"
+        type="text"
+        id="content_ar"
+        name="content_ar"
+        formControlName="content_ar"
+        class="col-span-2"
+      ></textarea>
+    </div>
+
+    <!-- Title in English -->
+    <div class="grid grid-cols-3 gap-5">
+      <label for="content_en"> المحتوى باللغة الإنجليزية</label>
+      <textarea
+        rows="6"
+        type="text"
+        id="content_en"
+        name="content_en"
+        formControlName="content_en"
+        class="col-span-2"
+      ></textarea>
+    </div>
+
+    <!-- Image -->
+    <div class="grid grid-cols-3 gap-5">
+      <label for="image">صورة</label>
+      <input
+        type="file"
+        id="image"
+        name="image"
+        class="col-span-2"
+        (change)="uploadImage($event)"
+      />
+    </div>
+
+    <!-- Header -->
+    <div class="flex gap-5">
+      <input
+        type="checkbox"
+        id="is_header"
+        name="is_header"
+        formControlName="is_header"
+      />
+      <label for="image">تعيين المحتوى كمحتوى رأس الصفحة </label>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" [disabled]="form.invalid">حفظ</button>
+  </form>
+</section>
+@if (successMessage) {
+<app-success-message [message]="successMessage"></app-success-message>
+} @if (errorMessage) {
+<app-error-message [message]="errorMessage"></app-error-message>
+}

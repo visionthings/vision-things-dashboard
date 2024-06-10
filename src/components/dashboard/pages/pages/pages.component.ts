@@ -5,12 +5,14 @@ import { DashboardService } from '../../../../services/dashboard.service';
 import { CommonModule } from '@angular/common';
 import { PaginationComponent } from '../../../../shared/pagination/pagination.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faTrashCan, faGlasses } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { LoadingComponent } from '../../../../shared/loading/loading.component';
 import { SuccessMessageComponent } from '../../../../shared/success-message/success-message.component';
 import { EmptyStateComponent } from '../../../../shared/empty-state/empty-state.component';
+import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-inbox',
+  selector: 'app-pages',
   standalone: true,
   imports: [
     HeadingComponent,
@@ -22,19 +24,21 @@ import { EmptyStateComponent } from '../../../../shared/empty-state/empty-state.
     FontAwesomeModule,
     EmptyStateComponent,
   ],
-  templateUrl: './inbox.component.html',
-  styleUrl: './inbox.component.scss',
+  templateUrl: './pages.component.html',
+  styleUrl: './pages.component.scss',
 })
-export class InboxComponent implements OnInit {
-  constructor(private dashboardService: DashboardService) {}
+export class PagesComponent implements OnInit {
+  constructor(
+    private dashboardService: DashboardService,
+    private router: Router
+  ) {}
   icons = {
-    read: faGlasses,
+    edit: faPenToSquare,
     delete: faTrashCan,
   };
   isLoading = true;
-  messages: any = [];
+  items: any = [];
   res: any = [];
-  currentMessage: string | null = null;
   currentPage: string | null = null;
   successMessage: string | null = null;
   errorMessage: string | null = null;
@@ -42,24 +46,24 @@ export class InboxComponent implements OnInit {
   setPage(page: any) {
     if (page) {
       this.currentPage = page;
-      this.dashboardService.getInboxPage(page).subscribe({
+      this.dashboardService.getPage(page).subscribe({
         next: (res: any) => {
           this.res = res;
-          this.messages = res.data;
+          this.items = res.data;
         },
         error: () => {},
       });
     }
   }
 
-  read(message: string) {
-    this.currentMessage = message;
+  edit(id: string) {
+    this.router.navigateByUrl(`/dashboard/edit-page/${id}`);
   }
 
   delete(id: string) {
-    this.dashboardService.deleteFromInbox(id).subscribe({
+    this.dashboardService.deletePage(id).subscribe({
       next: (res) => {
-        this.successMessage = 'تم حذف الرسالة بنجاح.';
+        this.successMessage = 'تم الحذف بنجاح.';
         this.setPage(this.currentPage);
         setTimeout(() => {
           this.successMessage = null;
@@ -67,7 +71,7 @@ export class InboxComponent implements OnInit {
       },
       error: (error) => {
         this.errorMessage =
-          'تعذر حذف الرسالة في الوقت الحالي، يرجى المحاولة مرة أخرى.';
+          'تعذر الحذف في الوقت الحالي، يرجى المحاولة مرة أخرى.';
         setTimeout(() => {
           this.errorMessage = null;
         }, 7000);
@@ -76,11 +80,11 @@ export class InboxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dashboardService.getInbox().subscribe({
+    this.dashboardService.getPages().subscribe({
       next: (res: any) => {
         this.isLoading = false;
         this.res = res;
-        this.messages = res.data;
+        this.items = res.data;
         this.currentPage = `${res.path}?page=1`;
       },
       error: () => {
