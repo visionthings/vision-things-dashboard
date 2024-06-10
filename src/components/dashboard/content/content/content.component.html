@@ -16,8 +16,8 @@
     <tbody>
       @for (item of items; track $index) {
       <tr>
-        <td>{{ item.content_ar }}</td>
-        <td>{{ item.content_en }}</td>
+        <td>{{ item.content_ar.substring(0, 50) }}</td>
+        <td>{{ item.content_en.substring(0, 50) }}</td>
         <td>
           <fa-icon
             [icon]="icons.edit"
